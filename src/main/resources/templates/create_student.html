@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Étudiant</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+<!-- Navigation -->
+<nav class="bg-indigo-600 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+                <a href="/" class="text-white text-xl font-bold flex items-center">
+                    <i class="fas fa-graduation-cap mr-2"></i>
+                    StudentManager
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="min-h-screen py-6">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumb -->
+        <nav class="flex mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-4">
+                <li>
+                    <a href="/" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                    <span class="ml-4 text-gray-500">Ajouter un Étudiant</span>
+                </li>
+            </ol>
+        </nav>
+
+        <!-- Form Card -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <div class="px-6 py-4 bg-indigo-600">
+                <h1 class="text-xl font-bold text-white">Ajouter un Nouvel Étudiant</h1>
+            </div>
+
+            <form action="/add" method="post" class="p-6 space-y-6">
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <!-- First Name -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700" for="firstName">
+                            Prénom
+                        </label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="firstName" name="firstName"
+                                   class="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                                   required placeholder="Entrez le prénom">
+                        </div>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700" for="lastName">
+                            Nom
+                        </label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="lastName" name="lastName"
+                                   class="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                                   required placeholder="Entrez le nom">
+                        </div>
+                    </div>
+
+                    <!-- Age -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700" for="age">
+                            Âge
+                        </label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-birthday-cake text-gray-400"></i>
+                            </div>
+                            <input type="number" id="age" name="age"
+                                   class="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                                   required min="0" max="120" placeholder="Entrez l'âge">
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700" for="phone">
+                            Téléphone
+                        </label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-phone text-gray-400"></i>
+                            </div>
+                            <input type="tel" id="phone" name="phone"
+                                   class="block w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                                   required placeholder="Entrez le numéro de téléphone">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-end space-x-4 pt-4 border-t">
+                    <a href="/" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <i class="fas fa-times mr-2"></i>
+                        Annuler
+                    </a>
+                    <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <i class="fas fa-save mr-2"></i>
+                        Enregistrer
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-white border-t border-gray-200">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-sm text-gray-500">
+            © 2024 StudentManager. Tous droits réservés.
+        </p>
+    </div>
+</footer>
+</body>
+</html>
